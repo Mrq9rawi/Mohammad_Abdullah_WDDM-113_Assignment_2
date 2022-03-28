@@ -14,35 +14,40 @@ window.onload = () => {
 	userNameInput.focus();
 };
 
+function inputError(input) {
+	input.classList.remove("success");
+	input.classList.add("error");
+}
+
+function inputSuccess(input) {
+	input.classList.add("success");
+	input.classList.remove("error");
+}
+
+
 // Username Validation
 userNameInput.addEventListener("input", () => {
 	// console.log(userNameInput.value)
-	if (8 <= userNameInput.value.length && userNameInput.value.length <= 24) {
-		userNameDiv.classList.remove("error");
-		userNameDiv.classList.add("success");
+	if (8 <= userNameInput.value.trim().length && userNameInput.value.trim().length <= 24) {
+		inputSuccess(userNameDiv);
 	} else {
-		userNameDiv.classList.remove("success");
-		userNameDiv.classList.add("error");
+		inputError(userNameDiv);
 	}
 });
 
 // Password Validation
 passwordInput.addEventListener("input", () => {
-	if (passwordInput.value.length >= 6) {
-		passwordDiv.classList.remove("error");
-		passwordDiv.classList.add("success");
+	if (passwordInput.value.trim().length >= 6) {
+		inputSuccess(passwordDiv);
 	} else {
-		passwordDiv.classList.remove("success");
-		passwordDiv.classList.add("error");
+		inputError(passwordDiv);
 	}
 	// Confirm Password Validation On Password Change
 	if (confirmPasswordInput.value.trim() !== "") {
 		if (confirmPasswordInput.value === passwordInput.value) {
-			confirmPasswordDiv.classList.remove("error");
-			confirmPasswordDiv.classList.add("success");
+			inputSuccess(confirmPasswordDiv);
 		} else {
-			confirmPasswordDiv.classList.remove("success");
-			confirmPasswordDiv.classList.add("error");
+			inputError(confirmPasswordDiv);
 		}
 	}
 });
@@ -50,11 +55,9 @@ passwordInput.addEventListener("input", () => {
 // Confirm Password Validation
 confirmPasswordInput.addEventListener("input", () => {
 	if (confirmPasswordInput.value === passwordInput.value) {
-		confirmPasswordDiv.classList.remove("error");
-		confirmPasswordDiv.classList.add("success");
+		inputSuccess(confirmPasswordDiv);
 	} else {
-		confirmPasswordDiv.classList.remove("success");
-		confirmPasswordDiv.classList.add("error");
+		inputError(confirmPasswordDiv);
 	}
 });
 
@@ -63,6 +66,7 @@ submitButton.onclick = (e) => {
 	if (userNameDiv.classList.contains("success")
 		&& passwordDiv.classList.contains("success")
 		&& confirmPasswordDiv.classList.contains("success")) {
+		// I stopped the submission just to prevent the website from reloading.
 		e.preventDefault();
 		userNameInput.value = "";
 		userNameDiv.classList.remove("success");
@@ -70,6 +74,7 @@ submitButton.onclick = (e) => {
 		passwordDiv.classList.remove("success");
 		confirmPasswordInput.value = "";
 		confirmPasswordDiv.classList.remove("success");
+		userNameInput.focus();
 	} else {
 		e.preventDefault();
 		if (!userNameDiv.classList.contains("success")) {
