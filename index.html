@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS Form Validation</title>
-    <!-- Fontawesome icon library -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <main>
-      <header>
-        <h1>Create Account</h1>
-      </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS Form Validation</title>
+		<!-- Fontawesome icon library -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>Create Account</h1>
+			</header>
 
-      <form id="form">
-        <!-- Username -->
-        <div class="form-control">
-          <label for="username">Username</label>
-          <input type="text" id="username" placeholder="user123" />
-          <span class="fas fa-check-circle"></span>
-          <span class="fas fa-exclamation-circle"></span>
-          <small>Error message</small>
-        </div>
-        <!-- Password -->
-        <div class="form-control">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Password" />
-          <span class="fas fa-check-circle"></span>
-          <span class="fas fa-exclamation-circle"></span>
-          <small>Error message</small>
-        </div>
-        <!-- Confirm Password -->
-        <div class="form-control">
-          <label for="password2">Confirm Password</label>
-          <input type="password" id="password2" placeholder="Password" />
-          <span class="fas fa-check-circle"></span>
-          <span class="fas fa-exclamation-circle"></span>
-          <small>Error message</small>
-        </div>
-        <!-- Submit button -->
-        <button type="submit">Submit</button>
-      </form>
-    </main>
-    <!-- Javascript -->
-    <script src="js/main.js"></script>
-  </body>
+			<form id="form">
+				<!-- Username -->
+				<div class="form-control user-name">
+					<label for="username">Username</label>
+					<input type="text" id="username" placeholder="user123" />
+					<span class="fas fa-check-circle"></span>
+					<span class="fas fa-exclamation-circle"></span>
+					<small> Username must be between 8 & 24 characters </small>
+				</div>
+				<!-- Password -->
+				<div class="form-control password">
+					<label for="password">Password</label>
+					<input type="password" id="password" placeholder="Password" />
+					<span class="fas fa-check-circle"></span>
+					<span class="fas fa-exclamation-circle"></span>
+					<small>Password must be at least 6 characters</small>
+				</div>
+				<!-- Confirm Password -->
+				<div class="form-control confirm-password">
+					<label for="password2">Confirm Password</label>
+					<input type="password" id="password2" placeholder="Password" />
+					<span class="fas fa-check-circle"></span>
+					<span class="fas fa-exclamation-circle"></span>
+					<small>Values doesn't match</small>
+				</div>
+				<!-- Submit button -->
+				<button type="submit">Submit</button>
+			</form>
+		</main>
+		<!-- Javascript -->
+		<script src="js/main.js"></script>
+	</body>
 </html>
