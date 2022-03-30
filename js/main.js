@@ -14,6 +14,11 @@ window.onload = () => {
 	userNameInput.focus();
 };
 
+function inputReset(input) {
+	input.classList.remove("success");
+	input.classList.remove("error");
+}
+
 function inputError(input) {
 	input.classList.remove("success");
 	input.classList.add("error");
@@ -33,6 +38,9 @@ userNameInput.addEventListener("input", () => {
 	} else {
 		inputError(userNameDiv);
 	}
+	if (userNameInput.value === "") {
+		inputReset(userNameDiv);
+	}
 });
 
 // Password Validation
@@ -41,6 +49,9 @@ passwordInput.addEventListener("input", () => {
 		inputSuccess(passwordDiv);
 	} else {
 		inputError(passwordDiv);
+	}
+	if (passwordInput.value === "") {
+		inputReset(passwordDiv);
 	}
 	// Confirm Password Validation On Password Change
 	if (confirmPasswordInput.value.trim() !== "") {
@@ -58,6 +69,9 @@ confirmPasswordInput.addEventListener("input", () => {
 		inputSuccess(confirmPasswordDiv);
 	} else {
 		inputError(confirmPasswordDiv);
+	}
+	if (confirmPasswordInput.value === "") {
+		inputReset(confirmPasswordDiv);
 	}
 });
 
